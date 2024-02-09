@@ -2,6 +2,7 @@ package com.example.graphqlserver;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public record Book (String id, String name, int pageCount, String authorId) {
 
@@ -17,4 +18,8 @@ public record Book (String id, String name, int pageCount, String authorId) {
 				.findFirst()
 				.orElse(null);
     }
+
+    public static Stream<Book> getAllBooks() {
+        return books.stream();
+    } 
 }
