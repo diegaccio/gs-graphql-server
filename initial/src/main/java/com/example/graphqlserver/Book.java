@@ -7,9 +7,9 @@ import java.util.stream.Stream;
 public record Book (String id, String name, int pageCount, String authorId) {
 
     private static List<Book> books = Arrays.asList(
-            new Book("book-1", "Effective Java", 416, "author-1"),
-            new Book("book-2", "Hitchhiker's Guide to the Galaxy", 208, "author-2"),
-            new Book("book-3", "Down Under", 436, "author-3")
+            new Book("book-1", "Effective Java", 416, "0"),
+            new Book("book-2", "Hitchhiker's Guide to the Galaxy", 208, "1"),
+            new Book("book-3", "Down Under", 436, "2")
     );
 
     public static Book getById(String id) {
