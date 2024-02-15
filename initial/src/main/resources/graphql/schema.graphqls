@@ -1,10 +1,11 @@
 type Query {
     bookById(id: ID): Book
     books: [Book]
+    authors: [Author]
 }
 
 type Mutation {
-    addAuthort(firstName: String, lastName: String):Author
+    addAuthor(firstName: String, lastName: String):Author
 }
 
 type Book {

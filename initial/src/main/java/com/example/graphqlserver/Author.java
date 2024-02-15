@@ -3,6 +3,7 @@ package com.example.graphqlserver;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Stream;
 
 public record Author (String id, String firstName, String lastName) {
 
@@ -10,13 +11,14 @@ public record Author (String id, String firstName, String lastName) {
 
     private static List<Author> authors = Arrays.asList(
             new Author(Integer.toString(autoIncrement.getAndIncrement()), "Joshua", "Bloch"),
+            //addAuthor("Joshua", "Bloch"),
             new Author(Integer.toString(autoIncrement.getAndIncrement()), "Douglas", "Adams"),
             new Author(Integer.toString(autoIncrement.getAndIncrement()), "Bill", "Bryson")
     );
 
     public static Author addAuthor(String firstName, String lastName) {
         Author author = new Author(Integer.toString(autoIncrement.getAndIncrement()), firstName, lastName);
-        authors.add(author);
+        //authors.add(author);
         return author;
     }
 
@@ -26,4 +28,8 @@ public record Author (String id, String firstName, String lastName) {
 				.findFirst()
 				.orElse(null);
     }
+
+    public static Stream<Author> getAllAuthors() {
+        return authors.stream();
+    } 
 }

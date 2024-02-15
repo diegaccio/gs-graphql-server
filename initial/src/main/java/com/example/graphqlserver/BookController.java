@@ -21,6 +21,11 @@ public class BookController {
         return Book.getAllBooks();
     }
 
+    @QueryMapping
+    public Stream<Author> authors() {
+        return Author.getAllAuthors();
+    }
+
     @SchemaMapping
     public Author author(Book book) {
         return Author.getById(book.authorId());
